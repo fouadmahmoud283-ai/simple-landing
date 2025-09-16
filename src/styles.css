@@ -211,9 +211,33 @@ p {
   font-size: 3.5rem;
   font-weight: 700;
   font-family: var(--font-heading);
-  color: var(--primary-navy);
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--muted-navy) 50%, var(--primary-navy) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: shimmer 3s ease-in-out infinite;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  position: relative;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-accent), var(--deep-gold));
+  border-radius: 2px;
+  opacity: 0.8;
 }
 
 .lead {
@@ -307,6 +331,7 @@ p {
     padding: var(--space-lg) var(--space-sm);
   }
 }
+
 
 
 
