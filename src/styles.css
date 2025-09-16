@@ -261,36 +261,77 @@ p {
   font-family: var(--font-body);
   font-size: 1rem;
   letter-spacing: 0.025em;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid transparent;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
+  min-width: 160px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--gold-accent) 0%, var(--deep-gold) 100%);
   color: var(--primary-navy);
-  box-shadow: var(--shadow-medium);
+  box-shadow: 
+    0 8px 32px rgba(212, 175, 55, 0.3),
+    0 4px 16px rgba(212, 175, 55, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--gold-accent);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-strong);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 16px 48px rgba(212, 175, 55, 0.4),
+    0 8px 24px rgba(212, 175, 55, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
   background: linear-gradient(135deg, var(--deep-gold) 0%, var(--gold-accent) 100%);
+  border-color: var(--deep-gold);
+}
+
+.btn-primary:active {
+  transform: translateY(-2px) scale(1.01);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(26, 54, 93, 0.05);
   color: var(--primary-navy);
   border: 2px solid var(--primary-navy);
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 16px rgba(26, 54, 93, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-secondary:hover {
   background: var(--primary-navy);
   color: var(--warm-white);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-medium);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 16px 48px rgba(26, 54, 93, 0.3),
+    0 8px 24px rgba(26, 54, 93, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-navy);
+}
+
+.btn-secondary:active {
+  transform: translateY(-2px) scale(1.01);
 }
 
 /* Responsive Design */
@@ -331,6 +372,7 @@ p {
     padding: var(--space-lg) var(--space-sm);
   }
 }
+
 
 
 
