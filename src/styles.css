@@ -347,7 +347,27 @@ p {
   transform: translateY(-2px) scale(1.01);
 }
 
-/* Responsive Design */
+/* Enhanced Footer */
+.footer {
+  color: var(--elegant-gray);
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.footer:hover {
+  opacity: 1;
+}
+
+/* Luxury Loading Animation */
+@keyframes luxuryPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Enhanced Responsive Design with Luxury Aesthetic */
 @media (max-width: 768px) {
   .app {
     padding: var(--space-md);
@@ -356,35 +376,145 @@ p {
   
   .card {
     padding: var(--space-xl) var(--space-md);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(15px);
   }
   
   .hero {
     font-size: 2.5rem;
+    letter-spacing: -0.01em;
+  }
+  
+  .hero::after {
+    width: 40px;
+    height: 2px;
   }
   
   .lead {
     font-size: 1.1rem;
+    line-height: 1.5;
   }
   
   .btn {
     padding: var(--space-sm) var(--space-md);
     font-size: 0.9rem;
+    min-width: 140px;
+  }
+  
+  /* Reduce animation intensity on mobile */
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: translateY(-2px) scale(1.01);
   }
 }
 
 @media (max-width: 480px) {
+  body::before {
+    animation: none; /* Disable complex animations on small screens */
+  }
+  
   .hero {
     font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero::after {
+    width: 30px;
+    height: 2px;
+    bottom: -6px;
   }
   
   .lead {
     font-size: 1rem;
+    line-height: 1.5;
   }
   
   .card {
     padding: var(--space-lg) var(--space-sm);
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(10px);
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    min-width: 120px;
+    letter-spacing: 0.02em;
+  }
+  
+  /* Simplified hover effects for touch devices */
+  .card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .btn:hover::before {
+    display: none; /* Disable shine effect on small screens */
   }
 }
+
+/* High-end device optimizations */
+@media (min-width: 1200px) {
+  .card {
+    max-width: 1000px;
+    padding: 80px 60px;
+  }
+  
+  .hero {
+    font-size: 4rem;
+    letter-spacing: -0.03em;
+  }
+  
+  .lead {
+    font-size: 1.35rem;
+    max-width: 800px;
+  }
+  
+  .btn {
+    padding: 18px 36px;
+    font-size: 1.1rem;
+    min-width: 180px;
+  }
+}
+
+/* Accessibility and Performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  body::before {
+    animation: none;
+  }
+}
+
+/* Dark mode support for luxury aesthetic */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-navy: #2d3748;
+    --elegant-gray: #a0aec0;
+    --soft-cream: #1a202c;
+    --warm-white: #2d3748;
+    --light-gray: #4a5568;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #4a5568 100%);
+  }
+  
+  .card {
+    background: linear-gradient(145deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.9) 100%);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+}
+
 
 
 
