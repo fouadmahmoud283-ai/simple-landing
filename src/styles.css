@@ -249,6 +249,19 @@ p {
   margin-left: auto;
   margin-right: auto;
   font-weight: 300;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Button Styles */
@@ -372,6 +385,7 @@ p {
     padding: var(--space-lg) var(--space-sm);
   }
 }
+
 
 
 
