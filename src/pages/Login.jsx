@@ -6,18 +6,67 @@ export default function Login() {
     password: ''
   })
 
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
       [name]: value
     }))
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }))
+    }
   }
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address'
+    }
+
+    if (!formData.password) {
+      newErrors.password = 'Password is required'
+    } else if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters long'
+    }
+
+    return newErrors
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // TODO: Implement login logic
-    console.log('Login attempt:', formData)
+    const newErrors = validateForm()
+    
+    if (Object.keys(newErrors).length === 0) {
+      setIsSubmitting(true)
+      try {
+        // TODO: Implement actual login logic
+        console.log('Login attempt:', formData)
+        
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        
+        // Success - redirect or show success message
+        alert('Login successful! (This is a demo)')
+      } catch (error) {
+        console.error('Login error:', error)
+        setErrors({ general: 'Login failed. Please try again.' })
+      } finally {
+        setIsSubmitting(false)
+      }
+    } else {
+      setErrors(newErrors)
+    }
   }
 
   return (
@@ -92,3 +141,4 @@ export default function Login() {
     </div>
   )
 }
+
