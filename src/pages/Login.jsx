@@ -80,6 +80,12 @@ export default function Login() {
 
         {/* Login Form */}
         <form className="auth-form" onSubmit={handleSubmit}>
+          {errors.general && (
+            <div className="form-error-general">
+              {errors.general}
+            </div>
+          )}
+
           <div className="form-group">
             <label htmlFor="email" className="form-label">Email Address</label>
             <input
@@ -88,10 +94,11 @@ export default function Login() {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="form-input"
+              className={`form-input ${errors.email ? 'form-input-error' : ''}`}
               placeholder="Enter your email"
               required
             />
+            {errors.email && <span className="form-error">{errors.email}</span>}
           </div>
 
           <div className="form-group">
@@ -102,10 +109,11 @@ export default function Login() {
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="form-input"
+              className={`form-input ${errors.password ? 'form-input-error' : ''}`}
               placeholder="Enter your password"
               required
             />
+            {errors.password && <span className="form-error">{errors.password}</span>}
           </div>
 
           <div className="form-options">
@@ -141,4 +149,5 @@ export default function Login() {
     </div>
   )
 }
+
 
