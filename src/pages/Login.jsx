@@ -124,8 +124,12 @@ export default function Login() {
             <a href="#" className="forgot-password">Forgot password?</a>
           </div>
 
-          <button type="submit" className="btn btn-primary auth-submit">
-            Sign In
+          <button 
+            type="submit" 
+            className="btn btn-primary auth-submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Signing In...' : 'Sign In'}
           </button>
         </form>
 
@@ -149,5 +153,6 @@ export default function Login() {
     </div>
   )
 }
+
 
 
