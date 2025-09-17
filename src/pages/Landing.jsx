@@ -3,6 +3,24 @@ import React from 'react'
 export default function Landing() {
   return (
     <div className="landing-page">
+      {/* Navigation Header */}
+      <nav className="landing-nav">
+        <div className="nav-container">
+          <div className="nav-brand">
+            <h2 className="brand-title">Luxe Destinations</h2>
+          </div>
+          <div className="nav-links">
+            <a href="#destinations" className="nav-link">Destinations</a>
+            <a href="#about-us" className="nav-link">About</a>
+            <a href="#contact" className="nav-link">Contact</a>
+            <div className="nav-auth">
+              <a href="/login" className="nav-auth-link login-link">Sign In</a>
+              <a href="/signup" className="btn btn-primary nav-signup-btn">Join Us</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section id="hero" className="hero-section">
         <div className="hero-content">
@@ -68,6 +86,7 @@ export default function Landing() {
     </div>
   )
 }
+
 
 
 
