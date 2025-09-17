@@ -1175,6 +1175,28 @@ section {
   display: block;
 }
 
+.form-error-general {
+  background: rgba(229, 62, 62, 0.1);
+  border: 1px solid rgba(229, 62, 62, 0.3);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  color: #e53e3e;
+  font-size: 0.9rem;
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.auth-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-submit:disabled:hover {
+  transform: none;
+  box-shadow: var(--shadow-subtle);
+}
+
 .password-hint {
   color: var(--elegant-gray);
   font-size: 0.8rem;
@@ -1291,6 +1313,7 @@ section {
     color: rgba(160, 174, 192, 0.7);
   }
 }
+
 
 
 
