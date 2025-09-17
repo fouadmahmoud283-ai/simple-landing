@@ -998,6 +998,68 @@ section {
   50% { transform: translateY(-20px) scale(1.05); }
 }
 
+/* Signup Form Specific Styles */
+.signup-container {
+  max-width: 500px;
+}
+
+.signup-form {
+  gap: var(--space-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-input-error {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.form-error {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: var(--space-xs);
+  display: block;
+}
+
+.password-hint {
+  color: var(--elegant-gray);
+  font-size: 0.8rem;
+  margin-top: var(--space-xs);
+  opacity: 0.8;
+}
+
+.terms-label {
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.terms-label.checkbox-error .checkbox-text {
+  color: #e53e3e;
+}
+
+.terms-link {
+  color: var(--gold-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms-link:hover {
+  color: var(--deep-gold);
+  text-decoration: underline;
+}
+
+.decoration-circle-3 {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  right: 5%;
+  animation-delay: 1.5s;
+}
+
 /* Responsive Design for Auth Pages */
 @media (max-width: 768px) {
   .auth-page {
@@ -1019,8 +1081,14 @@ section {
     align-items: flex-start;
   }
   
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  
   .decoration-circle-1,
-  .decoration-circle-2 {
+  .decoration-circle-2,
+  .decoration-circle-3 {
     display: none;
   }
 }
@@ -1073,6 +1141,7 @@ section {
     color: rgba(160, 174, 192, 0.7);
   }
 }
+
 
 
 
